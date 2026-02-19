@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Estefania Nájera de la Rosa</title>
+    <title>Portafolio - Estefania Nájera</title>
 
     <style>
         * {
@@ -16,42 +16,52 @@
             font-family: 'Segoe UI', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea, #764ba2);
             min-height: 100vh;
-            text-align: center;
             padding: 40px 20px;
-            transition: 0.4s;
+            text-align: center;
+            transition: 0.4s ease;
         }
 
+        /* Modo oscuro */
         body.dark {
             background: linear-gradient(135deg, #1e1e2f, #121212);
             color: white;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 10px;
+        header {
+            margin-bottom: 40px;
             animation: fadeDown 1s ease;
         }
 
-        p {
+        h1 {
+            font-size: 2.7rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        body.dark h1 {
+            color: #ffffff;
+        }
+
+        .subtitle {
             color: #f1f1f1;
-            margin-bottom: 30px;
+            font-size: 18px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 650px;
             margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            display: flex;
+            flex-direction: column; /* TARJETAS EN VERTICAL */
+            gap: 22px;
         }
 
         .card {
             background: white;
-            padding: 25px;
+            padding: 25px 30px;
             border-radius: 18px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            transition: 0.3s ease;
+            transition: all 0.3s ease;
+            text-align: left;
             animation: fadeUp 0.8s ease;
         }
 
@@ -60,25 +70,38 @@
         }
 
         .card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        body.dark .card-desc {
+            color: #cfcfcf;
         }
 
         a {
             text-decoration: none;
-            color: #333;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        body.dark a {
-            color: #ffffff;
+            color: inherit;
         }
 
         .emoji {
             font-size: 30px;
-            display: block;
-            margin-bottom: 10px;
+            margin-right: 12px;
+        }
+
+        .card-content {
+            display: flex;
+            align-items: center;
         }
 
         .toggle-btn {
@@ -87,11 +110,22 @@
             right: 20px;
             border: none;
             background: white;
-            padding: 10px 15px;
-            border-radius: 20px;
+            padding: 10px 16px;
+            border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #e0e0e0;
+            font-size: 14px;
         }
 
         @keyframes fadeDown {
@@ -115,50 +149,82 @@
                 transform: translateY(0);
             }
         }
-
-        footer {
-            margin-top: 50px;
-            color: #e0e0e0;
-            font-size: 14px;
-        }
     </style>
 </head>
 <body>
 
     <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Modo oscuro</button>
 
-    <h1>📚 Mis Proyectos y Tareas</h1>
-    <p>Portafolio académico - Estefania Nájera de la Rosa</p>
+    <header>
+        <h1>📚 Mis Proyectos y Tareas</h1>
+        <p class="subtitle">Portafolio académico - Estefania Nájera de la Rosa</p>
+    </header>
 
     <div class="container">
 
-        <div class="card">
-            <span class="emoji">📊</span>
-            <a href="A1.1 Aprendizaje estadístico-automático/">
-                A1.1 Aprendizaje estadístico-automático
-            </a>
-        </div>
+        <a href="A1.1 Aprendizaje estadístico-automático/">
+            <div class="card">
+                <div class="card-content">
+                    <span class="emoji">📊</span>
+                    <div>
+                        <div class="card-title">
+                            A1.1 Aprendizaje estadístico-automático
+                        </div>
+                        <div class="card-desc">
+                            Análisis exploratorio de datos y fundamentos de aprendizaje automático.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
 
-        <div class="card">
-            <span class="emoji">📈</span>
-            <a href="A1.2 Regresión lineal/">
-                A1.2 Regresión lineal
-            </a>
-        </div>
+        <a href="A1.2 Regresión lineal/">
+            <div class="card">
+                <div class="card-content">
+                    <span class="emoji">📈</span>
+                    <div>
+                        <div class="card-title">
+                            A1.2 Regresión lineal
+                        </div>
+                        <div class="card-desc">
+                            Construcción de modelos de regresión y análisis de métricas (R², MAE, RMSE).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
 
-        <div class="card">
-            <span class="emoji">🧠</span>
-            <a href="A1.3 Solución de problemas y selección de características/">
-                A1.3 Selección de características
-            </a>
-        </div>
+        <a href="A1.3 Solución de problemas y selección de características/">
+            <div class="card">
+                <div class="card-content">
+                    <span class="emoji">🧠</span>
+                    <div>
+                        <div class="card-title">
+                            A1.3 Selección de características
+                        </div>
+                        <div class="card-desc">
+                            Técnicas de selección de variables y optimización del modelo predictivo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
 
-        <div class="card">
-            <span class="emoji">🤖</span>
-            <a href="P1. Regresión/">
-                P1. Regresión
-            </a>
-        </div>
+        <a href="P1. Regresión/">
+            <div class="card">
+                <div class="card-content">
+                    <span class="emoji">🤖</span>
+                    <div>
+                        <div class="card-title">
+                            P1. Regresión
+                        </div>
+                        <div class="card-desc">
+                            Proyecto de regresión con análisis de datos y evaluación de desempeño del modelo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
 
     </div>
 
@@ -173,5 +239,4 @@
     </script>
 
 </body>
-</html>
 </html>
