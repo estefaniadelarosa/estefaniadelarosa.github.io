@@ -2,63 +2,176 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Portafolio - Estefanía</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Estefania Nájera de la Rosa</title>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f6fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
             text-align: center;
-            padding: 40px;
+            padding: 40px 20px;
+            transition: 0.4s;
         }
+
+        body.dark {
+            background: linear-gradient(135deg, #1e1e2f, #121212);
+            color: white;
+        }
+
         h1 {
-            color: #2c3e50;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 10px;
+            animation: fadeDown 1s ease;
         }
+
+        p {
+            color: #f1f1f1;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
         .card {
             background: white;
-            padding: 20px;
-            margin: 15px auto;
-            width: 300px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: 0.3s ease;
+            animation: fadeUp 0.8s ease;
         }
+
+        body.dark .card {
+            background: #2b2b3c;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
         a {
             text-decoration: none;
-            color: #0077ff;
+            color: #333;
+            font-size: 18px;
             font-weight: bold;
         }
-        a:hover {
-            color: #0056b3;
+
+        body.dark a {
+            color: #ffffff;
+        }
+
+        .emoji {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            border: none;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #e0e0e0;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-    <h1>📁 Mis Proyectos y Tareas</h1>
-    <p>Repositorio académico - Estefanía de la Rosa</p>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Modo oscuro</button>
 
-    <div class="card">
-        <a href="A1.1 Aprendizaje estadístico-automático/">
-            A1.1 Aprendizaje estadístico-automático
-        </a>
+    <h1>📚 Mis Proyectos y Tareas</h1>
+    <p>Portafolio académico - Estefania Nájera de la Rosa</p>
+
+    <div class="container">
+
+        <div class="card">
+            <span class="emoji">📊</span>
+            <a href="A1.1 Aprendizaje estadístico-automático/">
+                A1.1 Aprendizaje estadístico-automático
+            </a>
+        </div>
+
+        <div class="card">
+            <span class="emoji">📈</span>
+            <a href="A1.2 Regresión lineal/">
+                A1.2 Regresión lineal
+            </a>
+        </div>
+
+        <div class="card">
+            <span class="emoji">🧠</span>
+            <a href="A1.3 Solución de problemas y selección de características/">
+                A1.3 Selección de características
+            </a>
+        </div>
+
+        <div class="card">
+            <span class="emoji">🤖</span>
+            <a href="P1. Regresión/">
+                P1. Regresión
+            </a>
+        </div>
+
     </div>
 
-    <div class="card">
-        <a href="A1.2 Regresión lineal/">
-            A1.2 Regresión lineal
-        </a>
-    </div>
+    <footer>
+        © 2026 | Portafolio en GitHub Pages
+    </footer>
 
-    <div class="card">
-        <a href="A1.3 Solución de problemas y selección de características/">
-            A1.3 Solución de problemas y selección de características
-        </a>
-    </div>
-
-    <div class="card">
-        <a href="P1. Regresión/">
-            P1. Regresión
-        </a>
-    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
 
 </body>
+</html>
 </html>
